@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "bn5R0FvZKpxDYcsG3L1HaKU/Y/PQHQgIj/r20Ad1Jq2DG/mi89RovxOPCevAkB/kvceYstqwRDVSSXg+a8NPVg==",
+  "success": true,
+  "projectFilePath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

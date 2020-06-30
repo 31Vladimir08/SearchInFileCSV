@@ -1,0 +1,5 @@
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\bin\Debug\netcoreapp3.1\TestTableDataCreateLibrary.deps.json
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\bin\Debug\netcoreapp3.1\TestTableDataCreateLibrary.dll
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\TestTableDataCreateLibrary.csprojAssemblyReference.cache
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\TestTableDataCreateLibrary.AssemblyInfoInputs.cache
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\TestTableDataCreateLibrary.AssemblyInfo.cs
