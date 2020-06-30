@@ -1,9 +1,7 @@
 ﻿namespace SearchInFileCSV
 {
-    using DataTableCreateLibrary;
-    using SearchInFileCSVLibrary;
     using System;
-    using System.Data;
+    using DataTableCreateLibrary;
 
     class Program
     {

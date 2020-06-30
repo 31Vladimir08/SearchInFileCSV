@@ -1,14 +1,13 @@
 ﻿namespace SearchInFileCSVLibrary
 {
-    using SearchInFileCSVLibrary.Interface;
-    using SearchInFileCSVLibrary.Resource;
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using SearchInFileCSVLibrary.Interface;
+    using SearchInFileCSVLibrary.Resource;
 
     public class FileWork : IFileWork
     {
@@ -117,11 +116,6 @@
                                 .Select(x => x.Index)
                                 .ToArray();
             return result;
-        }
-
-        private List<string> ParseRow(string line, List<int> columnsNumbers)
-        {
-            throw new NotImplementedException();
         }
 
         private bool FindExpressionToRow(string line, int[] columnNumber, string expression)
