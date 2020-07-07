@@ -12,6 +12,7 @@
     public class DataTableCsv : IDataTableCsv
     {
         private const uint _limitCol = 1000000;
+        private const char _delimeter = ';';
         public DataTableCsv()
         {
             RandomColumn = new Random();
@@ -115,11 +116,11 @@
                 current.Append(GetRandomString(lenNameColumn));
                 current.Append(" ");
                 current.Append(DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == item).Key);
-                current.Append(";");
+                current.Append(_delimeter);
                 return current;
             }).ToString();
 
-            /*var res = string.Join(";", TypeColumns.Select(
+            /*var res = string.Join(_delimeter, TypeColumns.Select(
                   x =>
                   {
                       var r = GetRandomString(lenNameColumn) + " " + DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == x).Key;
@@ -138,47 +139,47 @@
                 {
                     case (byte)TypeColumnEnum.DateTimeColumn:
                         {
-                            current.Append(GetRandomDate()).Append(";");
+                            current.Append(GetRandomDate()).Append(_delimeter);
                             break;
                         }
                     case (byte)TypeColumnEnum.IntColumn:
                         {
-                            current.Append(GetRandomIntNumber()).Append(";");
+                            current.Append(GetRandomIntNumber()).Append(_delimeter);
                             break;
                         }
                     case (byte)TypeColumnEnum.FloatColumn:
                         {
-                            current.Append(GetRandomFloatNumber()).Append(";");
+                            current.Append(GetRandomFloatNumber()).Append(_delimeter);
                             break;
                         }
                     default:
                         {
-                            current.Append(GetRandomString(len)).Append(";");
+                            current.Append(GetRandomString(len)).Append(_delimeter);
                             break;
                         }
                 }
                 return current;
             }).ToString();
-            /*var res = string.Join(";", TypeColumns.Select(
+            /*var res = string.Join(_delimeter, TypeColumns.Select(
                     x =>
                     {
                         switch (DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == x).Value)
                         {
                             case (byte)TypeColumnEnum.DateTimeColumn:
                                 {
-                                    return GetRandomDate() + ";";
+                                    return GetRandomDate() + _delimeter;
                                 }
                             case (byte)TypeColumnEnum.IntColumn:
                                 {
-                                    return GetRandomIntNumber() + ";";
+                                    return GetRandomIntNumber() + _delimeter;
                                 }
                             case (byte)TypeColumnEnum.FloatColumn:
                                 {
-                                    return GetRandomFloatNumber() + ";";
+                                    return GetRandomFloatNumber() + _delimeter;
                                 }
                             default:
                                 {
-                                    return GetRandomString(len) + ";";
+                                    return GetRandomString(len) + _delimeter;
                                 }
                         }
                     }));*/

@@ -5,18 +5,23 @@
     using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using SearchInFileCSVLibrary.Interface;
     using SearchInFileCSVLibrary.Resource;
 
     public class FileWork : IFileWork
     {
+        private const char _delimeter = ';';
         public FileWork()
         {
             Timer = new Stopwatch();
+            RegexColumns = new Regex(@"\s*\w+(?:\u0022[^\u0022] *\u0022 | '[^'] * '|[^;\u0022'])*", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline);
         }
 
         public Stopwatch Timer { get; private set; }
+
+        public Regex RegexColumns { get; private set; }
 
         public Encoding GetEncoding(string encoding)
         {
@@ -58,7 +63,7 @@
 
         private int[] ParseHeader(string header, string colName, string expression)
         {
-            var result = header.Split(';').AsParallel()
+            var result = header.Split(_delimeter).AsParallel()
                                 .Select((item, index) => new { Item = item, Index = index })
                                 .Where(
                                     x =>
@@ -120,14 +125,15 @@
 
         private bool FindExpressionToRow(string line, int[] columnNumber, string expression)
         {
-            var result = line.Split(';');
+            var res = line.Split(_delimeter);
+            var result = RegexColumns.Matches(line);
             var isFound = false;
             Timer.Restart();
             if (columnNumber.Length > 1000)
             {
                 Parallel.ForEach(columnNumber, (item, loop) =>
                         {
-                            if (result[item].Trim() == expression)
+                            if (result[item].Value.Trim() == expression)
                             {
                                 isFound = true;
                                 loop.Break();
@@ -138,7 +144,7 @@
             {
                 foreach (var item in columnNumber)
                 {
-                    if (result[item].Trim() == expression)
+                    if (result[item].Value.Trim() == expression)
                     {
                         isFound = true;
                         break;
