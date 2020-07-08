@@ -136,7 +136,7 @@
             {
                 Parallel.ForEach(columnNumber, (item, loop) =>
                         {
-                            if (result[item].Value.Trim() == expression)
+                            if (result[item].Value.Trim().TrimStart(_delimeter) == expression)
                             {
                                 isFound = true;
                                 loop.Break();
@@ -147,7 +147,7 @@
             {
                 foreach (var item in columnNumber)
                 {
-                    if (result[item].Value.Trim() == expression)
+                    if (result[item].Value.Trim().TrimStart(_delimeter) == expression)
                     {
                         isFound = true;
                         break;

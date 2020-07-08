@@ -15,7 +15,6 @@
         private const char _delimeter = ';';
         public DataTableCsv()
         {
-            RandomColumn = new Random();
             Timer = new Stopwatch();
         }
 
@@ -42,20 +41,19 @@
                 }
                 else
                 {
-                    sw.WriteLine(CreateHeaderTable(columns, lenNameColumn));
+                    for (int i = 0; i <= rows; i++)
+                    {
+                        RandomColumn = new Random();
+                        if (i == 0)
+                        {
+                            sw.WriteLine(CreateHeaderTable(columns, lenNameColumn));
+                        }
+                        else
+                        {
+                            sw.WriteLine(CreateRowTable(len));
+                        }
+                    }
                 }
-            }
-
-            using (StreamWriter sw = new StreamWriter(pathFileOut, true, encoding))
-            {
-                for (int i = 0; i < rows; i++)
-                {
-                    sw.WriteLine(CreateRowTable(len));
-                }
-                /*Parallel.For(0, rows, i =>
-                {
-                    sw.WriteLine(CreateRowTable(len));
-                });*/
             }
 
             Console.WriteLine("Выполнилось");
