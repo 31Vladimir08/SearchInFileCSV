@@ -13,6 +13,7 @@
     public class FileWork : IFileWork
     {
         private const char _delimeter = ';';
+        private const char _delimeterColName = ' ';
         public FileWork()
         {
             Timer = new Stopwatch();
@@ -68,7 +69,7 @@
                                 .Where(
                                     x =>
                                     {
-                                        var column = x.Item.Trim().Split(' ');
+                                        var column = x.Item.Trim().Split(_delimeterColName);
                                         if (column[0].Trim() == colName)
                                         {
                                             switch (DictionaryLibrary.TypeExpressionDict.FirstOrDefault(y => y.Key == column[1].Trim()).Value)

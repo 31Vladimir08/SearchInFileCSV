@@ -9,22 +9,8 @@
     {
         static void Main(string[] args)
         {
-            try
-            {
-                string input = @"C:\Users\Admin\Desktop\ТЕСТ\TestBigData.csv";
-                string output = @"C:\Users\Admin\Desktop\ТЕСТ\TestOutput.csv";
-                string encode = "UTF8";
-                string columname = @"awrsr";
-                string expression = "vbudnoneie";
-                new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression);
-                new DataTableCsv().CreateDataTableAsinc(10, 5, 10, 5, encode, input);
-                Console.WriteLine("Тест");
-                Console.ReadKey();
-            }
-            catch (Exception ex)
-            {
-
-            }
+            string[] str = new string[6] { "1", "2", "3", "4", "5", null };
+            new StartProgram(str[0], str[1], str[2], str[3], str[4], str[5]);
         }
     }
 }
