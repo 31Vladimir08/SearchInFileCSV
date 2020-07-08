@@ -17,7 +17,7 @@
         public FileWork()
         {
             Timer = new Stopwatch();
-            RegexColumns = new Regex(@"\s*\w+(?:\u0022[^\u0022] *\u0022 | '[^'] * '|[^;\u0022'])*", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            RegexColumns = new Regex(@".(?:\u0022[^\u0022] *\u0022 | [^;\u0022])*", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline);
         }
 
         public Stopwatch Timer { get; private set; }
@@ -126,8 +126,10 @@
 
         private bool FindExpressionToRow(string line, int[] columnNumber, string expression)
         {
-            var res = line.Split(_delimeter);
+            Timer.Restart();
+            /*var result = line.Split(_delimeter);*/
             var result = RegexColumns.Matches(line);
+            Timer.Stop();
             var isFound = false;
             Timer.Restart();
             if (columnNumber.Length > 1000)
