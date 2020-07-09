@@ -16,8 +16,8 @@
                 string encode = "UTF8";
                 string columname = @"awrsr";
                 string expression = "vbudnoneie";
-                /*new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression);*/
-                new DataTableCsv().CreateDataTableAsinc(100000, 5, 10, 5, encode, input);
+                new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression);
+                /*new DataTableCsv().CreateDataTableAsinc(1000000, 5, 10, 5, encode, input);*/
                 Console.WriteLine("Тест");
                 Console.ReadKey();
             }
