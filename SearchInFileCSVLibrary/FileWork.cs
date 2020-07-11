@@ -7,6 +7,7 @@
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+    using DataTableCreateLibrary;
     using SearchInFileCSVLibrary.Interface;
     using SearchInFileCSVLibrary.Resource;
 
@@ -32,6 +33,11 @@
         public void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression)
         {
             var encoding = GetEncoding(encode);
+            if (encoding == null)
+            {
+                throw new UserException("Не верно указана кодировка");
+            }
+
             using (StreamReader sr = new StreamReader(pathFileIn, encoding))
             {
                 var line = sr.ReadLine();

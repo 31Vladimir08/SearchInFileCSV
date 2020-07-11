@@ -38,7 +38,7 @@
             {
                 RandomColumn = new Random();
                 TypeColumns = CreateTypeColumns(columns);
-                for (int i = 0; i <= rows; i++)
+                for (uint i = 0; i <= rows; i++)
                 {
                     if (columns > _limitCol)
                     {
@@ -86,7 +86,7 @@
         private string GetRandomString(uint len)
         {
             var res = string.Empty;
-            for (int i = 0; i < len; i++)
+            for (uint i = 0; i < len; i++)
             {
                 res += (char)RandomColumn.Next('a', 'a' + 27);
             }
