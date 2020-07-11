@@ -2,13 +2,12 @@
 {
     using System.Diagnostics;
     using System.Text;
-    using System.Text.RegularExpressions;
 
     public interface IFileWork
     {
-        Stopwatch Timer { get; }
+        int CountColumns { get; }
 
-        Regex RegexColumns { get; }
+        Stopwatch Timer { get; }
 
         Encoding GetEncoding(string encoding);
 

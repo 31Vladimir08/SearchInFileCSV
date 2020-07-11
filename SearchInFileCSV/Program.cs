@@ -1,7 +1,6 @@
 ﻿namespace SearchInFileCSV
 {
     using System;
-    using System.Text.RegularExpressions;
     using DataTableCreateLibrary;
     using SearchInFileCSVLibrary;
 
@@ -14,16 +13,15 @@
                 string input = @"C:\Users\Admin\Desktop\ТЕСТ\TestBigData.csv";
                 string output = @"C:\Users\Admin\Desktop\ТЕСТ\TestOutput.csv";
                 string encode = "UTF8";
-                string columname = @"awrsr";
-                string expression = "vbudnoneie";
+                string columname = @"cfhwd";
+                string expression = "02.02.2011";
                 new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression);
-                /*new DataTableCsv().CreateDataTableAsinc(1000000, 5, 10, 5, encode, input);*/
+                /*new DataTableCsv().CreateDataTableAsinc(4, 1, 10, 5, encode, input);*/
                 Console.WriteLine("Тест");
                 Console.ReadKey();
             }
             catch (Exception ex)
             {
-
             }
         }
     }

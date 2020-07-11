@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "07RPC9RE4If7ew4CT1l+C1xDYGG7I/G4kcHROFqBWEI2WR4tUtNnpL21bh+vgjFz+MIgdzZv+MPNgGSSo/SNPw==",
+  "dgSpecHash": "GjsnH879iotYcUrs4nkFn8WbB1H26kuJLK1tNDGJ3gqntwnIuCY4VaU6xYUllIUyB50lUl4NVBwm6NibIcPcGw==",
   "success": true,
   "projectFilePath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
   ],
   "logs": []
 }

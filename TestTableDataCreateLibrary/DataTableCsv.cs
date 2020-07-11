@@ -13,6 +13,7 @@
     {
         private const uint _limitCol = 1000000;
         private const char _delimeter = ';';
+        private const char _delimeterColName = ' ';
         public DataTableCsv()
         {
             Timer = new Stopwatch();
@@ -35,28 +36,46 @@
             var encoding = GetEncoding(encode);
             using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
             {
-                if (columns > _limitCol)
+                RandomColumn = new Random();
+                TypeColumns = CreateTypeColumns(columns);
+                for (int i = 0; i <= rows; i++)
                 {
-                    throw new UserException("Максимальное допустимое кол-во колонок " + _limitCol);
-                }
-                else
-                {
-                    for (int i = 0; i <= rows; i++)
+                    if (columns > _limitCol)
+                    {
+                        var batched = TypeColumns
+                                    .Select((Value, Index) => new { Value, Index })
+                                    .GroupBy(p => p.Index / _limitCol)
+                                    .Select(g => g.Select(p => p.Value).ToArray());
+                        foreach (var item in batched)
+                        {
+                            RandomColumn = new Random();
+                            if (i == 0)
+                            {
+                                sw.Write(CreateHeaderTable(item, lenNameColumn));
+                            }
+                            else
+                            {
+                                sw.Write(CreateRowTable(item, len));
+                            }
+                        }
+
+                        sw.WriteLine();
+                    }
+                    else
                     {
                         RandomColumn = new Random();
+                        var typeColumns = CreateTypeColumns(columns);
                         if (i == 0)
                         {
-                            sw.WriteLine(CreateHeaderTable(columns, lenNameColumn));
+                            sw.WriteLine(CreateHeaderTable(TypeColumns, lenNameColumn));
                         }
                         else
                         {
-                            sw.WriteLine(CreateRowTable(len));
+                            sw.WriteLine(CreateRowTable(TypeColumns, len));
                         }
                     }
                 }
             }
-
-            Console.WriteLine("Выполнилось");
         }
 
         public async void CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut)
@@ -86,7 +105,7 @@
             // задает случайный день.
             var randomDayNr = RandomColumn.Next(1, DateTime.DaysInMonth(randomYear, randomMonthNr) + 1);
 
-            return new DateTime(randomYear, randomMonthNr, randomDayNr).ToString();
+            return new DateTime(randomYear, randomMonthNr, randomDayNr).ToShortDateString();
         }
 
         private string GetRandomIntNumber()
@@ -99,39 +118,25 @@
             return ((float)RandomColumn.NextDouble()).ToString();
         }
 
-        private string CreateHeaderTable(uint columnsCount, byte lenNameColumn)
+        private string CreateHeaderTable(uint[] typeColumns, byte lenNameColumn)
         {
-            TypeColumns = new uint[columnsCount];
-            Parallel.For(0, TypeColumns.Length, i =>
-                {
-                    TypeColumns[i] = (uint)RandomColumn.Next(1, 5);
-                });
             Timer.Restart();
-
-            // Work faster.
-            var res = TypeColumns.AsParallel().AsOrdered().Aggregate(new StringBuilder(), (current, item) =>
+            var res = typeColumns.AsParallel().AsOrdered().Aggregate(new StringBuilder(), (current, item) =>
             {
                 current.Append(GetRandomString(lenNameColumn));
-                current.Append(" ");
+                current.Append(_delimeterColName);
                 current.Append(DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == item).Key);
                 current.Append(_delimeter);
                 return current;
-            }).ToString();
-
-            /*var res = string.Join(_delimeter, TypeColumns.Select(
-                  x =>
-                  {
-                      var r = GetRandomString(lenNameColumn) + " " + DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == x).Key;
-                      return r;
-                  }));*/
+            }).ToString().TrimEnd(_delimeter);
             Timer.Stop();
             return res;
         }
 
-        private string CreateRowTable(uint len)
+        private string CreateRowTable(uint[] typeColumns, uint len)
         {
             Timer.Restart();
-            var res = TypeColumns.AsParallel().AsOrdered().Aggregate(new StringBuilder(), (current, next) =>
+            var res = typeColumns.AsParallel().AsOrdered().Aggregate(new StringBuilder(), (current, next) =>
             {
                 switch (DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == next).Value)
                 {
@@ -157,31 +162,19 @@
                         }
                 }
                 return current;
-            }).ToString();
-            /*var res = string.Join(_delimeter, TypeColumns.Select(
-                    x =>
-                    {
-                        switch (DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == x).Value)
-                        {
-                            case (byte)TypeColumnEnum.DateTimeColumn:
-                                {
-                                    return GetRandomDate() + _delimeter;
-                                }
-                            case (byte)TypeColumnEnum.IntColumn:
-                                {
-                                    return GetRandomIntNumber() + _delimeter;
-                                }
-                            case (byte)TypeColumnEnum.FloatColumn:
-                                {
-                                    return GetRandomFloatNumber() + _delimeter;
-                                }
-                            default:
-                                {
-                                    return GetRandomString(len) + _delimeter;
-                                }
-                        }
-                    }));*/
+            }).ToString().TrimEnd(_delimeter);
             Timer.Stop();
+            return res;
+        }
+
+        private uint[] CreateTypeColumns(uint columnsCount)
+        {
+            var res = new uint[columnsCount];
+            Parallel.For(0, res.Length, i =>
+            {
+                res[i] = (uint)RandomColumn.Next(1, 5);
+            });
+
             return res;
         }
     }

@@ -21,7 +21,7 @@
 
         public Stopwatch Timer { get; private set; }
 
-        public Regex RegexColumns { get; private set; }
+        public int CountColumns { get; private set; }
 
         public Encoding GetEncoding(string encoding)
         {
@@ -63,7 +63,9 @@
 
         private int[] ParseHeader(string header, string colName, string expression)
         {
-            var result = header.Split(_delimeter).AsParallel()
+            Timer.Restart();
+            var headers = header.Split(_delimeter);
+            var result = headers.AsParallel()
                                 .Select((item, index) => new { Item = item, Index = index })
                                 .Where(
                                     x =>
@@ -71,48 +73,34 @@
                                         var column = x.Item.Trim().Split(_delimeterColName);
                                         if (column[0].Trim() == colName)
                                         {
-                                            switch (DictionaryLibrary.TypeExpressionDict.FirstOrDefault(y => y.Key == column[1].Trim()).Value)
+                                            try
                                             {
-                                                case (byte)TypeExpressionEnum.StringExpression:
-                                                    {
-                                                        return true;
-                                                    }
-                                                case (byte)TypeExpressionEnum.DateTimeExpression:
-                                                    {
-                                                        try
+                                                switch (DictionaryLibrary.TypeExpressionDict.FirstOrDefault(y => y.Key == column[1].Trim()).Value)
+                                                {
+                                                    case (byte)TypeExpressionEnum.StringExpression:
+                                                        {
+                                                            return true;
+                                                        }
+                                                    case (byte)TypeExpressionEnum.DateTimeExpression:
                                                         {
                                                             Convert.ToDateTime(expression);
                                                             return true;
                                                         }
-                                                        catch (FormatException)
-                                                        {
-                                                            return false;
-                                                        }
-                                                    }
-                                                case (byte)TypeExpressionEnum.IntExpression:
-                                                    {
-                                                        try
+                                                    case (byte)TypeExpressionEnum.IntExpression:
                                                         {
                                                             Convert.ToInt32(expression);
                                                             return true;
                                                         }
-                                                        catch (FormatException)
-                                                        {
-                                                            return false;
-                                                        }
-                                                    }
-                                                case (byte)TypeExpressionEnum.FloatExpression:
-                                                    {
-                                                        try
+                                                    case (byte)TypeExpressionEnum.FloatExpression:
                                                         {
                                                             Convert.ToSingle(expression);
                                                             return true;
                                                         }
-                                                        catch (FormatException)
-                                                        {
-                                                            return false;
-                                                        }
-                                                    }
+                                                }
+                                            }
+                                            catch (FormatException)
+                                            {
+                                                return false;
                                             }
                                         }
 
@@ -120,14 +108,15 @@
                                     })
                                 .Select(x => x.Index)
                                 .ToArray();
+            Timer.Stop();
+            CountColumns = headers.Length;
             return result;
         }
 
         private bool FindExpressionToRow(string line, int[] columnNumber, string expression)
         {
-            RegexColumns = new Regex(@".(?:\u0022[^\u0022] *\u0022 | [^;\u0022])*", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline);
             Timer.Restart();
-            var result = RegexColumns.Matches(line);
+            var result = new Regex(@".(?:\u0022[^\u0022]* \u0022 |[^; \u0022])*", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline).Matches(line);
             Timer.Stop();
             var isFound = false;
             Timer.Restart();
@@ -135,7 +124,7 @@
             {
                 Parallel.ForEach(columnNumber, (item, loop) =>
                         {
-                            if (result[item].Value.Trim().TrimStart(_delimeter) == expression)
+                            if (item < result.Count && result[item].Value.Trim().TrimStart(_delimeter) == expression)
                             {
                                 isFound = true;
                                 loop.Break();
@@ -146,6 +135,11 @@
             {
                 foreach (var item in columnNumber)
                 {
+                    if (item >= result.Count)
+                    {
+                        continue;
+                    }
+
                     if (result[item].Value.Trim().TrimStart(_delimeter) == expression)
                     {
                         isFound = true;
