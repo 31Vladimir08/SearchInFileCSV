@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Threading;
     using System.Threading.Tasks;
     using DataTableCreateLibrary.Interface;
     using DataTableCreateLibrary.Resource;
@@ -31,7 +32,7 @@
             return result;
         }
 
-        public void CreateDataTable(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut)
+        public void CreateDataTable(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken)
         {
             var encoding = GetEncoding(encode);
             using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
@@ -72,15 +73,23 @@
                         else
                         {
                             sw.WriteLine(CreateRowTable(TypeColumns, len));
+                            cancellationToken.ThrowIfCancellationRequested();
                         }
                     }
                 }
             }
         }
 
-        public async void CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut)
+        public async void CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationTokenSource cancellationToken)
         {
-            await Task.Run(() => CreateDataTable(columns, rows, len, lenNameColumn, encode, pathFileOut));
+            try
+            {
+                await Task.Run(() => CreateDataTable(columns, rows, len, lenNameColumn, encode, pathFileOut, cancellationToken.Token), cancellationToken.Token);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private string GetRandomString(uint len)

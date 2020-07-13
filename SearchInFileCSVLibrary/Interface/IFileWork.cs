@@ -2,6 +2,8 @@
 {
     using System.Diagnostics;
     using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     public interface IFileWork
     {
@@ -11,8 +13,8 @@
 
         Encoding GetEncoding(string encoding);
 
-        void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression);
+        void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken);
 
-        void SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression);
+        void SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationTokenSource cancellationToken);
     }
 }

@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics;
     using System.Text;
+    using System.Threading;
 
     public interface IDataTableCsv
     {
@@ -14,8 +15,8 @@
 
         Encoding GetEncoding(string encoding);
 
-        void CreateDataTable(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut);
+        void CreateDataTable(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken);
 
-        void CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut);
+        void CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationTokenSource cancellationToken);
     }
 }

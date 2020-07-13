@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
+    using System.Threading;
     using System.Threading.Tasks;
     using DataTableCreateLibrary;
     using SearchInFileCSVLibrary.Interface;
@@ -30,14 +31,10 @@
             return result;
         }
 
-        public void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression)
+        public void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken)
         {
+            CanExecute(encode);
             var encoding = GetEncoding(encode);
-            if (encoding == null)
-            {
-                throw new UserException("Не верно указана кодировка");
-            }
-
             using (StreamReader sr = new StreamReader(pathFileIn, encoding))
             {
                 var line = sr.ReadLine();
@@ -47,6 +44,7 @@
                 using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
                 {
                     sw.WriteLine(line);
+                    cancellationToken.ThrowIfCancellationRequested();
                 }
 
                 while ((line = sr.ReadLine()) != null)
@@ -62,9 +60,16 @@
             }
         }
 
-        public async void SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression)
+        public async void SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationTokenSource cancellationToken)
         {
-            await Task.Run(() => SearchInFileCSV(pathFileIn, pathFileOut, encode, colName, expression));
+            try
+            {
+                await Task.Run(() => SearchInFileCSV(pathFileIn, pathFileOut, encode, colName, expression, cancellationToken.Token), cancellationToken.Token);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private int[] ParseHeader(string header, string colName, string expression)
@@ -155,6 +160,14 @@
             }
             Timer.Stop();
             return isFound;
+        }
+
+        private void CanExecute(string encode)
+        {
+            if (GetEncoding(encode) == null)
+            {
+                throw new UserException("Не верно указана кодировка");
+            }
         }
     }
 }
