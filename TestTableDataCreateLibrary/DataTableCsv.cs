@@ -80,15 +80,18 @@
             }
         }
 
-        public async void CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationTokenSource cancellationToken)
+        public async Task CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken = default)
         {
             try
             {
-                await Task.Run(() => CreateDataTable(columns, rows, len, lenNameColumn, encode, pathFileOut, cancellationToken.Token), cancellationToken.Token);
+                await Task.Run(() => CreateDataTable(columns, rows, len, lenNameColumn, encode, pathFileOut, cancellationToken), cancellationToken);
+            }
+            catch (OperationCanceledException ex)
+            {
+
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
             }
         }
 

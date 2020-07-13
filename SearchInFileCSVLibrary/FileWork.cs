@@ -60,11 +60,11 @@
             }
         }
 
-        public async void SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationTokenSource cancellationToken)
+        public async Task SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken = default)
         {
             try
             {
-                await Task.Run(() => SearchInFileCSV(pathFileIn, pathFileOut, encode, colName, expression, cancellationToken.Token), cancellationToken.Token);
+                await Task.Run(() => SearchInFileCSV(pathFileIn, pathFileOut, encode, colName, expression, cancellationToken), cancellationToken);
             }
             catch (Exception ex)
             {

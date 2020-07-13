@@ -8,7 +8,7 @@
 
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             try
             {
@@ -31,12 +31,9 @@
                 string columname = @"cfhwd";
                 string expression = "02.02.2011";
                 /*new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken);*/
-                new DataTableCsv().CreateDataTableAsinc(1000000, 5000, 10, 4, encode, input, cancellationToken);
-                while (Console.ReadLine() == "n")
-                {
-                    cancellationToken.Cancel();
-                    Console.WriteLine("Операция отменена");
-                }
+                var t = new DataTableCsv().CreateDataTableAsinc(1000000, 5000, 10, 4, encode, input, cancellationToken.Token);
+                cancellationToken.Cancel();
+                Console.WriteLine("sdsddassddsdsdads");
                 Console.ReadKey();
             }
             catch (Exception ex)
