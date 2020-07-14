@@ -12,34 +12,54 @@
         {
             try
             {
+                Task<string> task;
                 CancellationTokenSource cancellationToken = new CancellationTokenSource();
-                /*if (args[0] == "1")
+                if (args[0] == "1")
                 {
-                    new FileWork().SearchInFileCSVAsync(args[1], args[2], args[3], args[4], args[5]);
+                    task = new FileWork().SearchInFileCSVAsync(args[1], args[2], args[3], args[4], args[5], cancellationToken.Token);
                 }
                 else if (args[0] == "2")
                 {
-                    new DataTableCsv().CreateDataTableAsinc(Convert.ToUInt32(args[1]), Convert.ToUInt32(args[2]), Convert.ToUInt32(args[3]), Convert.ToByte(args[4]), args[5], args[6]);
+                    task = new DataTableCsv().CreateDataTableAsinc(Convert.ToUInt32(args[1]), Convert.ToUInt32(args[2]), Convert.ToUInt32(args[3]), Convert.ToByte(args[4]), args[5], args[6], cancellationToken.Token);
                 }
                 else
                 {
+                    throw new UserException("Первым параметром должно быть число 1 - Для поиска в файле или 2 - Для генерации тестового файла");
+                }
 
-                }*/
-                string input = @"C:\Users\Admin\Desktop\ТЕСТ\TestBigData.csv";
-                string output = @"C:\Users\Admin\Desktop\ТЕСТ\TestOutput.csv";
-                string encode = "UTF8";
-                string columname = @"cfhwd";
-                string expression = "02.02.2011";
-                /*new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken);*/
-                var t = new DataTableCsv().CreateDataTableAsinc(1000000, 5000, 10, 4, encode, input, cancellationToken.Token);
-                cancellationToken.Cancel();
-                Console.WriteLine("sdsddassddsdsdads");
+                Console.WriteLine("Программа начала выполняться, для досрочного завершения работы программы, нажмите Esc");
+                Thread thread = new Thread(new ParameterizedThreadStart(GetConsoleKey));
+                thread.IsBackground = true;
+                thread.Start(cancellationToken);
+
+                if (await task != string.Empty)
+                {
+                    throw new Exception(task.Result);
+                }
+
+                Console.WriteLine("Программа успешно завершила работу");
                 Console.ReadKey();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private static void GetConsoleKey(object cancellationToken)
+        {
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey();
+                if (key.Key == ConsoleKey.Escape)
+                {
+                    Console.WriteLine(key.Key + " клавиша была нажата");
+                    var x = (CancellationTokenSource)cancellationToken;
+                    x.Cancel();
+                }
+            }
+            while (key.Key != ConsoleKey.Escape);
         }
     }
 }

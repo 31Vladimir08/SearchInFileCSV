@@ -8,7 +8,6 @@
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
-    using DataTableCreateLibrary;
     using SearchInFileCSVLibrary.Interface;
     using SearchInFileCSVLibrary.Resource;
 
@@ -60,15 +59,20 @@
             }
         }
 
-        public async Task SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken = default)
+        public async Task<string> SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken = default)
         {
             try
             {
                 await Task.Run(() => SearchInFileCSV(pathFileIn, pathFileOut, encode, colName, expression, cancellationToken), cancellationToken);
+                return string.Empty;
+            }
+            catch (OperationCanceledException ex)
+            {
+                return ex.Message;
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return ex.Message;
             }
         }
 

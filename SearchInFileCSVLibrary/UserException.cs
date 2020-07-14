@@ -1,4 +1,4 @@
-﻿namespace DataTableCreateLibrary
+﻿namespace SearchInFileCSVLibrary
 {
     using System;
     using System.Runtime.Serialization;

@@ -34,6 +34,7 @@
 
         public void CreateDataTable(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken)
         {
+            CanExecute(columns, rows, len, lenNameColumn, encode);
             var encoding = GetEncoding(encode);
             using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
             {
@@ -80,18 +81,20 @@
             }
         }
 
-        public async Task CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken = default)
+        public async Task<string> CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken = default)
         {
             try
             {
                 await Task.Run(() => CreateDataTable(columns, rows, len, lenNameColumn, encode, pathFileOut, cancellationToken), cancellationToken);
+                return string.Empty;
             }
             catch (OperationCanceledException ex)
             {
-
+                return ex.Message;
             }
             catch (Exception ex)
             {
+                return ex.Message;
             }
         }
 
@@ -188,6 +191,34 @@
             });
 
             return res;
+        }
+
+        private void CanExecute(uint columns, uint rows, uint len, byte lenNameColumn, string encode)
+        {
+            if (columns == 0)
+            {
+                throw new UserException("Кол-во колонок должно быть не меньше 1");
+            }
+
+            if (rows == 0)
+            {
+                throw new UserException("Кол-во строк должно быть не меньше 1");
+            }
+
+            if (len == 0 || len > 200)
+            {
+                throw new UserException("Кол-во символов в строковых столбцах должно быть от 1 до 200");
+            }
+
+            if (lenNameColumn == 0 || lenNameColumn > 50)
+            {
+                throw new UserException("Кол-во символов в именах колонок должно быть от 1 до 50");
+            }
+
+            if (GetEncoding(encode) == null)
+            {
+                throw new UserException("Не верно указана кодировка");
+            }
         }
     }
 }
