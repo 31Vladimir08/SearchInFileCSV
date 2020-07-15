@@ -1,9 +1,12 @@
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\bin\Debug\netcoreapp3.1\DataTableCreateLibrary.deps.json
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\bin\Debug\netcoreapp3.1\DataTableCreateLibrary.dll
-D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.csprojAssemblyReference.cache
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.AssemblyInfoInputs.cache
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.AssemblyInfo.cs
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\bin\Debug\netcoreapp3.1\DataTableCreateLibrary.pdb
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.csproj.CoreCompileInputs.cache
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.dll
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.pdb
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.csprojAssemblyReference.cache
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.dll
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.pdb
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\TestTableDataCreateLibrary\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.csproj.CopyComplete

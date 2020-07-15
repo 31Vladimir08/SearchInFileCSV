@@ -7,12 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchInFileCSV", "SearchIn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchInFileCSVLibrary", "SearchInFileCSVLibrary\SearchInFileCSVLibrary.csproj", "{B6326C63-D824-40BA-8986-BD5E9BECA164}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTableCreateLibrary", "TestTableDataCreateLibrary\DataTableCreateLibrary.csproj", "{C6AB84C2-52E1-4797-9A06-431D4CF350C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTableCreateLibrary", "TestTableDataCreateLibrary\DataTableCreateLibrary.csproj", "{C6AB84C2-52E1-4797-9A06-431D4CF350C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C7756C85-7AC7-4648-804F-7AACF4464309}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceLibrary", "ResourceLibrary\ResourceLibrary.csproj", "{44E79AE0-C0AC-4D33-A61A-FF27E5E20886}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{C6AB84C2-52E1-4797-9A06-431D4CF350C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6AB84C2-52E1-4797-9A06-431D4CF350C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6AB84C2-52E1-4797-9A06-431D4CF350C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E79AE0-C0AC-4D33-A61A-FF27E5E20886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E79AE0-C0AC-4D33-A61A-FF27E5E20886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E79AE0-C0AC-4D33-A61A-FF27E5E20886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E79AE0-C0AC-4D33-A61A-FF27E5E20886}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

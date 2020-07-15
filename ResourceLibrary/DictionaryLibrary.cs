@@ -1,4 +1,4 @@
-﻿namespace SearchInFileCSVLibrary.Resource
+﻿namespace ResourceLibrary
 {
     using System.Collections.Generic;
     using System.Text;
@@ -18,11 +18,11 @@
             }
         }
 
-        public static Dictionary<string, byte> TypeExpressionDict
+        public static Dictionary<string, int> TypeColumnDict
         {
             get
             {
-                var t = new Dictionary<string, byte>();
+                var t = new Dictionary<string, int>();
                 t.Add("string", 1);
                 t.Add("DateTime", 2);
                 t.Add("int", 3);

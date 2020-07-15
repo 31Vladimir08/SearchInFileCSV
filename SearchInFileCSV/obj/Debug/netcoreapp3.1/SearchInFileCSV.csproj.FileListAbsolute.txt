@@ -16,3 +16,5 @@ D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSV\obj\Debug\netcoreapp3.1\SearchInFileCSV.csproj.CoreCompileInputs.cache
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSV\bin\Debug\netcoreapp3.1\DataTableCreateLibrary.dll
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSV\bin\Debug\netcoreapp3.1\DataTableCreateLibrary.pdb
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSV\bin\Debug\netcoreapp3.1\ResourceLibrary.dll
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSV\bin\Debug\netcoreapp3.1\ResourceLibrary.pdb

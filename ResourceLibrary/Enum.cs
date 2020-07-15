@@ -1,6 +1,6 @@
-﻿namespace DataTableCreateLibrary
+﻿namespace ResourceLibrary
 {
-    enum TypeColumnEnum : byte
+    public enum TypeColumnEnum : byte
     {
         StringColumn = 1,
         DateTimeColumn = 2,

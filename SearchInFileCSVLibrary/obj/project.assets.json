@@ -4,6 +4,16 @@
     ".NETCoreApp,Version=v3.1": {
       "StyleCop.Analyzers/1.1.118": {
         "type": "package"
+      },
+      "ResourceLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ResourceLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ResourceLibrary.dll": {}
+        }
       }
     }
   },
@@ -32,10 +42,16 @@
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
+    },
+    "ResourceLibrary/1.0.0": {
+      "type": "project",
+      "path": "../ResourceLibrary/ResourceLibrary.csproj",
+      "msbuildProject": "../ResourceLibrary/ResourceLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ResourceLibrary >= 1.0.0",
       "StyleCop.Analyzers >= 1.1.118"
     ]
   },
@@ -69,7 +85,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj": {
+              "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

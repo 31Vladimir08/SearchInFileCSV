@@ -8,7 +8,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using DataTableCreateLibrary.Interface;
-    using DataTableCreateLibrary.Resource;
+    using ResourceLibrary;
 
     public class DataTableCsv : IDataTableCsv
     {
@@ -81,20 +81,19 @@
             }
         }
 
-        public async Task<string> CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken = default)
+        public async Task CreateDataTableAsinc(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken = default)
         {
             try
             {
                 await Task.Run(() => CreateDataTable(columns, rows, len, lenNameColumn, encode, pathFileOut, cancellationToken), cancellationToken);
-                return string.Empty;
             }
             catch (OperationCanceledException ex)
             {
-                return ex.Message;
+                throw new UserException(ex.Message);
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                throw new UserException(ex.Message);
             }
         }
 
@@ -197,7 +196,7 @@
         {
             if (columns == 0)
             {
-                throw new UserException("Кол-во колонок должно быть не меньше 1");
+                throw new UserException("Кол-во колонок должно быть не меньше 1 и не более " + uint.MaxValue);
             }
 
             if (rows == 0)

@@ -11,3 +11,9 @@ dotnet_analyzer_diagnostic.category-StyleCop.CSharp.OrderingRules.severity = err
 
 # Default severity for analyzer diagnostics with category 'StyleCop.CSharp.ReadabilityRules'
 dotnet_analyzer_diagnostic.category-StyleCop.CSharp.ReadabilityRules.severity = none
+
+# Default severity for analyzer diagnostics with category 'StyleCop.CSharp.DocumentationRules'
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.DocumentationRules.severity = none
+
+# Default severity for analyzer diagnostics with category 'StyleCop.CSharp.NamingRules'
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.NamingRules.severity = none

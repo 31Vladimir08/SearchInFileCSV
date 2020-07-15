@@ -8,6 +8,9 @@
       "DataTableCreateLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ResourceLibrary": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/DataTableCreateLibrary.dll": {}
         },
@@ -15,9 +18,22 @@
           "bin/placeholder/DataTableCreateLibrary.dll": {}
         }
       },
+      "ResourceLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ResourceLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ResourceLibrary.dll": {}
+        }
+      },
       "SearchInFileCSVLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ResourceLibrary": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/SearchInFileCSVLibrary.dll": {}
         },
@@ -57,6 +73,11 @@
       "type": "project",
       "path": "../TestTableDataCreateLibrary/DataTableCreateLibrary.csproj",
       "msbuildProject": "../TestTableDataCreateLibrary/DataTableCreateLibrary.csproj"
+    },
+    "ResourceLibrary/1.0.0": {
+      "type": "project",
+      "path": "../ResourceLibrary/ResourceLibrary.csproj",
+      "msbuildProject": "../ResourceLibrary/ResourceLibrary.csproj"
     },
     "SearchInFileCSVLibrary/1.0.0": {
       "type": "project",

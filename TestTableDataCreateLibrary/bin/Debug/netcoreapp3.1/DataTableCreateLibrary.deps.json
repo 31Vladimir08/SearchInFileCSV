@@ -8,13 +8,19 @@
     ".NETCoreApp,Version=v3.1": {
       "DataTableCreateLibrary/1.0.0": {
         "dependencies": {
+          "ResourceLibrary": "1.0.0",
           "StyleCop.Analyzers": "1.1.118"
         },
         "runtime": {
           "DataTableCreateLibrary.dll": {}
         }
       },
-      "StyleCop.Analyzers/1.1.118": {}
+      "StyleCop.Analyzers/1.1.118": {},
+      "ResourceLibrary/1.0.0": {
+        "runtime": {
+          "ResourceLibrary.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -29,6 +35,11 @@
       "sha512": "sha512-Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
       "path": "stylecop.analyzers/1.1.118",
       "hashPath": "stylecop.analyzers.1.1.118.nupkg.sha512"
+    },
+    "ResourceLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

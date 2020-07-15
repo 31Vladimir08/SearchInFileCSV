@@ -18,11 +18,22 @@
       },
       "StyleCop.Analyzers/1.1.118": {},
       "DataTableCreateLibrary/1.0.0": {
+        "dependencies": {
+          "ResourceLibrary": "1.0.0"
+        },
         "runtime": {
           "DataTableCreateLibrary.dll": {}
         }
       },
+      "ResourceLibrary/1.0.0": {
+        "runtime": {
+          "ResourceLibrary.dll": {}
+        }
+      },
       "SearchInFileCSVLibrary/1.0.0": {
+        "dependencies": {
+          "ResourceLibrary": "1.0.0"
+        },
         "runtime": {
           "SearchInFileCSVLibrary.dll": {}
         }
@@ -43,6 +54,11 @@
       "hashPath": "stylecop.analyzers.1.1.118.nupkg.sha512"
     },
     "DataTableCreateLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ResourceLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

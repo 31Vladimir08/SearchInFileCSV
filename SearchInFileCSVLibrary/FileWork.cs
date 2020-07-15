@@ -8,8 +8,8 @@
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
+    using ResourceLibrary;
     using SearchInFileCSVLibrary.Interface;
-    using SearchInFileCSVLibrary.Resource;
 
     public class FileWork : IFileWork
     {
@@ -43,7 +43,6 @@
                 using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
                 {
                     sw.WriteLine(line);
-                    cancellationToken.ThrowIfCancellationRequested();
                 }
 
                 while ((line = sr.ReadLine()) != null)
@@ -53,26 +52,26 @@
                         using (StreamWriter sw = new StreamWriter(pathFileOut, true, encoding))
                         {
                             sw.WriteLine(line);
+                            cancellationToken.ThrowIfCancellationRequested();
                         }
                     }
                 }
             }
         }
 
-        public async Task<string> SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken = default)
+        public async Task SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken = default)
         {
             try
             {
                 await Task.Run(() => SearchInFileCSV(pathFileIn, pathFileOut, encode, colName, expression, cancellationToken), cancellationToken);
-                return string.Empty;
             }
             catch (OperationCanceledException ex)
             {
-                return ex.Message;
+                throw new UserException(ex.Message);
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                throw new UserException(ex.Message);
             }
         }
 
@@ -90,23 +89,23 @@
                                         {
                                             try
                                             {
-                                                switch (DictionaryLibrary.TypeExpressionDict.FirstOrDefault(y => y.Key == column[1].Trim()).Value)
+                                                switch (DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Key == column[1].Trim()).Value)
                                                 {
-                                                    case (byte)TypeExpressionEnum.StringExpression:
+                                                    case (byte)TypeColumnEnum.StringColumn:
                                                         {
                                                             return true;
                                                         }
-                                                    case (byte)TypeExpressionEnum.DateTimeExpression:
+                                                    case (byte)TypeColumnEnum.DateTimeColumn:
                                                         {
                                                             Convert.ToDateTime(expression);
                                                             return true;
                                                         }
-                                                    case (byte)TypeExpressionEnum.IntExpression:
+                                                    case (byte)TypeColumnEnum.IntColumn:
                                                         {
                                                             Convert.ToInt32(expression);
                                                             return true;
                                                         }
-                                                    case (byte)TypeExpressionEnum.FloatExpression:
+                                                    case (byte)TypeColumnEnum.FloatColumn:
                                                         {
                                                             Convert.ToSingle(expression);
                                                             return true;

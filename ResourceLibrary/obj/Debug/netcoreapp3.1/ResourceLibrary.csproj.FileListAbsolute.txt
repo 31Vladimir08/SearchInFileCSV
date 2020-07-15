@@ -1,0 +1,8 @@
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.deps.json
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.dll
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.AssemblyInfoInputs.cache
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.AssemblyInfo.cs
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.pdb
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.csproj.CoreCompileInputs.cache
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.dll
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.pdb
