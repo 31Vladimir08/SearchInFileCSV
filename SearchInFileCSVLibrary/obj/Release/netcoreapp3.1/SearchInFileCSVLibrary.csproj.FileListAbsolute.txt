@@ -1,0 +1,12 @@
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\bin\Release\netcoreapp3.1\SearchInFileCSVLibrary.deps.json
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\bin\Release\netcoreapp3.1\SearchInFileCSVLibrary.dll
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\bin\Release\netcoreapp3.1\SearchInFileCSVLibrary.pdb
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\bin\Release\netcoreapp3.1\ResourceLibrary.dll
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\bin\Release\netcoreapp3.1\ResourceLibrary.pdb
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\obj\Release\netcoreapp3.1\SearchInFileCSVLibrary.csprojAssemblyReference.cache
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\obj\Release\netcoreapp3.1\SearchInFileCSVLibrary.AssemblyInfoInputs.cache
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\obj\Release\netcoreapp3.1\SearchInFileCSVLibrary.AssemblyInfo.cs
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\obj\Release\netcoreapp3.1\SearchInFileCSVLibrary.csproj.CoreCompileInputs.cache
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\obj\Release\netcoreapp3.1\SearchInFileCSVLibrary.csproj.CopyComplete
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\obj\Release\netcoreapp3.1\SearchInFileCSVLibrary.dll
+D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\obj\Release\netcoreapp3.1\SearchInFileCSVLibrary.pdb
