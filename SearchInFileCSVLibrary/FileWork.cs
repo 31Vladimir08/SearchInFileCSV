@@ -36,7 +36,7 @@
             {
                 var line = sr.ReadLine();
                 Timer.Restart();
-                var columnsNambers = ParseHeader(line, colName, expression, cancellationToken);
+                var columnsNambers = FindNumbersColumnsHeader(line, colName, expression, cancellationToken);
                 Timer.Stop();
                 using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
                 {
@@ -73,7 +73,7 @@
             }
         }
 
-        private int[] ParseHeader(string header, string colName, string expression, CancellationToken cancellationToken = default)
+        private int[] FindNumbersColumnsHeader(string header, string colName, string expression, CancellationToken cancellationToken = default)
         {
             Timer.Restart();
             var headers = header.Split(Constants.DELIMETER);
