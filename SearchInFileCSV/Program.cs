@@ -19,13 +19,6 @@
                     Thread thread = new Thread(new ParameterizedThreadStart(GetConsoleKey));
                     thread.IsBackground = true;
                     thread.Start(cancellationToken);
-                    /*string input = @"C:\Users\Admin\Desktop\ТЕСТ\TestBigData.csv";
-                    string output = @"C:\Users\Admin\Desktop\ТЕСТ\TestOutput.csv";
-                    string encode = "UTF8";
-                    string columname = @"cfhwd";
-                    string expression = "02.02.2011";
-                    Console.WriteLine("Программа начала выполняться, для досрочного завершения работы программы, нажмите Esc");
-                    await new DataTableCsv().CreateDataTableAsinc(10000000, 5, 10, 4, encode, input, cancellationToken.Token);*/
                     if (args[0] == "1")
                     {
                         await new FileWork().SearchInFileCSVAsync(args[1], args[2], args[3], args[4], args[5], cancellationToken.Token);
