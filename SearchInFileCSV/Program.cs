@@ -34,10 +34,6 @@
                     {
                         await new DataTableCsv().CreateDataTableAsinc(Convert.ToUInt32(args[1]), Convert.ToUInt32(args[2]), Convert.ToUInt32(args[3]), Convert.ToByte(args[4]), args[5], args[6], cancellationToken.Token);
                     }
-                    else
-                    {
-                        throw new UserException("Первым параметром должно быть число 1 - Для поиска в файле или 2 - Для генерации тестового файла");
-                    }
 
                     cancellationToken.Cancel();
                     Console.WriteLine("Программа успешно завершила работу, для выхода из программы, нажмите любую клавишу.");
@@ -87,9 +83,15 @@
             {
                 throw new UserException("Вы не передали параметры");
             }
+
             if (args.Length != 6 || args.Length != 5)
             {
                 throw new UserException("Не верное кол-во переданных параметров");
+            }
+
+            if (args[0] != "1" || args[0] != "2")
+            {
+                throw new UserException("Первым параметром должно быть число 1 - Для поиска в файле или 2 - Для генерации тестового файла");
             }
 
             foreach (var item in args)
