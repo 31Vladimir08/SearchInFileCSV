@@ -12,9 +12,6 @@
 
     public class DataTableCsv : IDataTableCsv
     {
-        private const uint _limitCol = 1000000;
-        private const char _delimeter = ';';
-        private const char _delimeterColName = ' ';
         public DataTableCsv()
         {
             Timer = new Stopwatch();
@@ -34,7 +31,7 @@
 
         public void CreateDataTable(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken)
         {
-            CanExecute(columns, rows, len, lenNameColumn, encode);
+            CanExecute(columns, rows, len, lenNameColumn, encode, pathFileOut);
             var encoding = GetEncoding(encode);
             using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
             {
@@ -42,11 +39,11 @@
                 TypeColumns = CreateTypeColumns(columns);
                 for (uint i = 0; i <= rows; i++)
                 {
-                    if (columns > _limitCol)
+                    if (columns > Constants.LIMITETCOL)
                     {
                         var batched = TypeColumns
                                     .Select((Value, Index) => new { Value, Index })
-                                    .GroupBy(p => p.Index / _limitCol)
+                                    .GroupBy(p => p.Index / Constants.LIMITETCOL)
                                     .Select(g => g.Select(p => p.Value).ToArray());
                         foreach (var item in batched)
                         {
@@ -138,11 +135,11 @@
             var res = typeColumns.AsParallel().AsOrdered().Aggregate(new StringBuilder(), (current, item) =>
             {
                 current.Append(GetRandomString(lenNameColumn));
-                current.Append(_delimeterColName);
+                current.Append(Constants.DELIMETERCOLNAME);
                 current.Append(DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == item).Key);
-                current.Append(_delimeter);
+                current.Append(Constants.DELIMETER);
                 return current;
-            }).ToString().TrimEnd(_delimeter);
+            }).ToString().TrimEnd(Constants.DELIMETER);
             Timer.Stop();
             return res;
         }
@@ -156,27 +153,27 @@
                 {
                     case (byte)TypeColumnEnum.DateTimeColumn:
                         {
-                            current.Append(GetRandomDate()).Append(_delimeter);
+                            current.Append(GetRandomDate()).Append(Constants.DELIMETER);
                             break;
                         }
                     case (byte)TypeColumnEnum.IntColumn:
                         {
-                            current.Append(GetRandomIntNumber()).Append(_delimeter);
+                            current.Append(GetRandomIntNumber()).Append(Constants.DELIMETER);
                             break;
                         }
                     case (byte)TypeColumnEnum.FloatColumn:
                         {
-                            current.Append(GetRandomFloatNumber()).Append(_delimeter);
+                            current.Append(GetRandomFloatNumber()).Append(Constants.DELIMETER);
                             break;
                         }
                     default:
                         {
-                            current.Append(GetRandomString(len)).Append(_delimeter);
+                            current.Append(GetRandomString(len)).Append(Constants.DELIMETER);
                             break;
                         }
                 }
                 return current;
-            }).ToString().TrimEnd(_delimeter);
+            }).ToString().TrimEnd(Constants.DELIMETER);
             Timer.Stop();
             return res;
         }
@@ -192,7 +189,7 @@
             return res;
         }
 
-        private void CanExecute(uint columns, uint rows, uint len, byte lenNameColumn, string encode)
+        private void CanExecute(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut)
         {
             if (columns == 0)
             {
@@ -217,6 +214,11 @@
             if (GetEncoding(encode) == null)
             {
                 throw new UserException("Не верно указана кодировка");
+            }
+
+            if (pathFileOut.EndsWith(Constants.CSV))
+            {
+                throw new UserException("В имени файла должно быть указано расширение .csv");
             }
         }
     }

@@ -13,8 +13,6 @@
 
     public class FileWork : IFileWork
     {
-        private const char _delimeter = ';';
-        private const char _delimeterColName = ' ';
         public FileWork()
         {
             Timer = new Stopwatch();
@@ -32,13 +30,13 @@
 
         public void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken)
         {
-            CanExecute(encode);
+            CanExecute(pathFileIn, pathFileOut, encode);
             var encoding = GetEncoding(encode);
             using (StreamReader sr = new StreamReader(pathFileIn, encoding))
             {
                 var line = sr.ReadLine();
                 Timer.Restart();
-                var columnsNambers = ParseHeader(line, colName, expression);
+                var columnsNambers = ParseHeader(line, colName, expression, cancellationToken);
                 Timer.Stop();
                 using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
                 {
@@ -75,16 +73,17 @@
             }
         }
 
-        private int[] ParseHeader(string header, string colName, string expression)
+        private int[] ParseHeader(string header, string colName, string expression, CancellationToken cancellationToken = default)
         {
             Timer.Restart();
-            var headers = header.Split(_delimeter);
+            var headers = header.Split(Constants.DELIMETER);
             var result = headers.AsParallel()
+                                .WithCancellation(cancellationToken)
                                 .Select((item, index) => new { Item = item, Index = index })
                                 .Where(
                                     x =>
                                     {
-                                        var column = x.Item.Trim().Split(_delimeterColName);
+                                        var column = x.Item.Trim().Split(Constants.DELIMETERCOLNAME);
                                         if (column[0].Trim() == colName)
                                         {
                                             try
@@ -138,7 +137,7 @@
             {
                 Parallel.ForEach(columnNumber, (item, loop) =>
                         {
-                            if (item < result.Count && result[item].Value.Trim().TrimStart(_delimeter) == expression)
+                            if (item < result.Count && result[item].Value.Trim().TrimStart(Constants.DELIMETER) == expression)
                             {
                                 isFound = true;
                                 loop.Break();
@@ -154,7 +153,7 @@
                         continue;
                     }
 
-                    if (result[item].Value.Trim().TrimStart(_delimeter) == expression)
+                    if (result[item].Value.Trim().TrimStart(Constants.DELIMETER) == expression)
                     {
                         isFound = true;
                         break;
@@ -165,8 +164,13 @@
             return isFound;
         }
 
-        private void CanExecute(string encode)
+        private void CanExecute(string pathFileIn, string pathFileOut, string encode)
         {
+            if (pathFileIn.EndsWith(Constants.CSV) || pathFileOut.EndsWith(Constants.CSV))
+            {
+                throw new UserException("В имени файла должно быть указано расширение .csv");
+            }
+
             if (GetEncoding(encode) == null)
             {
                 throw new UserException("Не верно указана кодировка");

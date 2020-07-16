@@ -1,6 +1,7 @@
 ﻿namespace SearchInFileCSV
 {
     using System;
+    using System.Data.Common;
     using System.Threading;
     using System.Threading.Tasks;
     using DataTableCreateLibrary;
@@ -13,12 +14,36 @@
         {
             try
             {
+#if RELEASE
                 CanExecute(args);
+#endif
                 using (CancellationTokenSource cancellationToken = new CancellationTokenSource())
                 {
                     Thread thread = new Thread(new ParameterizedThreadStart(GetConsoleKey));
                     thread.IsBackground = true;
                     thread.Start(cancellationToken);
+#if DEBUG
+                    int i = 1;
+                    uint columns = 2000000;
+                    uint rows = 5;
+                    uint len = 100;
+                    byte lenName = 30;
+                    string input = @"C:\Users\Admin\Desktop\ТЕСТ\TestBigData.csv";
+                    string output = @"C:\Users\Admin\Desktop\ТЕСТ\TestOutput.csv";
+                    string encode = "UTF8";
+                    string columname = @"cfhwd";
+                    string expression = "02.02.2011";
+                    if (i == 1)
+                    {
+                        await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken.Token);
+                    }
+                    else
+                    {
+                        await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, output, cancellationToken.Token);
+                    }
+#endif
+
+#if RELEASE
                     if (args[0] == "1")
                     {
                         await new FileWork().SearchInFileCSVAsync(args[1], args[2], args[3], args[4], args[5], cancellationToken.Token);
@@ -27,7 +52,7 @@
                     {
                         await new DataTableCsv().CreateDataTableAsinc(Convert.ToUInt32(args[1]), Convert.ToUInt32(args[2]), Convert.ToUInt32(args[3]), Convert.ToByte(args[4]), args[5], args[6], cancellationToken.Token);
                     }
-
+#endif
                     cancellationToken.Cancel();
                     Console.WriteLine("Программа успешно завершила работу, для выхода из программы, нажмите любую клавишу.");
                     thread.Join();
