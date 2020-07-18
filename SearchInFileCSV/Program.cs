@@ -1,7 +1,6 @@
 ﻿namespace SearchInFileCSV
 {
     using System;
-    using System.Data.Common;
     using System.Threading;
     using System.Threading.Tasks;
     using DataTableCreateLibrary;
@@ -23,23 +22,23 @@
                     thread.IsBackground = true;
                     thread.Start(cancellationToken);
 #if DEBUG
-                    int i = 1;
-                    uint columns = 2000000;
-                    uint rows = 5;
-                    uint len = 100;
-                    byte lenName = 30;
+                    int i = 2;
+                    uint columns = 20;
+                    uint rows = 1;
+                    uint len = 10;
+                    byte lenName = 10;
                     string input = @"C:\Users\Admin\Desktop\ТЕСТ\TestBigData.csv";
                     string output = @"C:\Users\Admin\Desktop\ТЕСТ\TestOutput.csv";
                     string encode = "UTF8";
-                    string columname = @"cfhwd";
-                    string expression = "02.02.2011";
+                    string columname = @"zyivxmrrop";
+                    string expression = "0,4046684";
                     if (i == 1)
                     {
                         await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken.Token);
                     }
                     else
                     {
-                        await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, output, cancellationToken.Token);
+                        await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, cancellationToken.Token);
                     }
 #endif
 
