@@ -43,6 +43,10 @@
         public string CreateRowTable(uint len, Random random, uint[] typeColumns = default)
         {
             Timer.Restart();
+            if (typeColumns == null)
+            {
+                typeColumns = TypeColumns;
+            }
             var res = typeColumns.AsParallel().AsOrdered().Aggregate(new StringBuilder(), (current, next) =>
             {
                 switch (DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == next).Value)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YSEHXp9HJbqofdnX9v69vxPftXN1MXZwm9OTSW2Smww+NnCLjITvv0FyLNzYqDfksfphOz67GtuWnk5NAppOfQ==",
+  "dgSpecHash": "Eh+lgPUMYCXEOjqJMAX+opJe6vCKg3hmAHRtx5cAuklN2eDz9DqIi2HyBTxNTfzkAT3PsN58LBkn/P71K2hkRQ==",
   "success": true,
-  "projectFilePath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj",
+  "projectFilePath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
   ],

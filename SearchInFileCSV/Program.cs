@@ -24,11 +24,11 @@
 #if DEBUG
                     int i = 2;
                     uint columns = 20;
-                    uint rows = 1;
+                    uint rows = 5;
                     uint len = 10;
-                    byte lenName = 10;
-                    string input = @"C:\Users\Admin\Desktop\ТЕСТ\TestBigData.csv";
-                    string output = @"C:\Users\Admin\Desktop\ТЕСТ\TestOutput.csv";
+                    byte lenName = 5;
+                    string input = @"E:\TestBigData.csv";
+                    string output = @"E:\TestOutput.csv";
                     string encode = "UTF8";
                     string columname = @"zyivxmrrop";
                     string expression = "0,4046684";

@@ -6,3 +6,11 @@ D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.csproj.CoreCompileInputs.cache
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.dll
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.pdb
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\ResourceLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.deps.json
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\ResourceLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\ResourceLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.pdb
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.AssemblyInfoInputs.cache
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.AssemblyInfo.cs
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.csproj.CoreCompileInputs.cache
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\ResourceLibrary\obj\Debug\netcoreapp3.1\ResourceLibrary.pdb

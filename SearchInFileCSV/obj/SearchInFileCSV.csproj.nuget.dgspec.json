@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj": {}
+    "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj": {}
   },
   "projects": {
-    "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj": {
+    "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj",
+        "projectUniqueName": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj",
         "projectName": "ResourceLibrary",
-        "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj",
+        "projectPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\obj\\",
+        "outputPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\ResourceLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -30,6 +32,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,6 +44,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -64,24 +68,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj": {
+    "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj",
+        "projectUniqueName": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj",
         "projectName": "SearchInFileCSVLibrary",
-        "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj",
+        "projectPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSVLibrary\\obj\\",
+        "outputPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSVLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -94,9 +100,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj": {
-                "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj"
+              "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj": {
+                "projectPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj"
               }
             }
           }
@@ -109,6 +116,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -132,24 +140,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj": {
+    "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj",
+        "projectUniqueName": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj",
         "projectName": "SearchInFileCSV",
-        "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj",
+        "projectPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSV\\obj\\",
+        "outputPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSV\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -162,12 +172,13 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj": {
-                "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj"
+              "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj": {
+                "projectPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj"
               },
-              "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj": {
-                "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj"
+              "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj": {
+                "projectPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj"
               }
             }
           }
@@ -180,6 +191,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -203,24 +215,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj": {
+    "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj",
+        "projectUniqueName": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj",
         "projectName": "DataTableCreateLibrary",
-        "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj",
+        "projectPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\TestTableDataCreateLibrary\\DataTableCreateLibrary.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\TestTableDataCreateLibrary\\obj\\",
+        "outputPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\TestTableDataCreateLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -233,9 +247,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj": {
-                "projectPath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj"
+              "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj": {
+                "projectPath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\ResourceLibrary\\ResourceLibrary.csproj"
               }
             }
           }
@@ -248,6 +263,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -271,7 +287,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

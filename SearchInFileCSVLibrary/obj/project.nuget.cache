@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KYwpIzeeiR3kgyWsDcEu+x+EVp87mFTdDnxM0MMJktQFNOg4t8+gu6R9OH1/iHI5CCSjGcxX6zlqyynBEq4zXA==",
+  "dgSpecHash": "YfZGqgwQWPQhKAAXD7Te7fkHNIhsmEV42L8teMWBVrNTZaGkfskuIcLaJHnRR9s0dGacyvRLWCOEcJsAtEpnJw==",
   "success": true,
-  "projectFilePath": "D:\\Мои документы\\Володя\\Проекты\\C#\\EPAM\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj",
+  "projectFilePath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSVLibrary\\SearchInFileCSVLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
   ],

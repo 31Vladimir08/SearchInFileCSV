@@ -10,3 +10,15 @@ D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.dll
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.pdb
 D:\Мои документы\Володя\Проекты\C#\EPAM\SearchInFileCSV\SearchInFileCSVLibrary\obj\Debug\netcoreapp3.1\SearchInFileCSVLibrary.csproj.CopyComplete
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\bin\Debug\netcoreapp3.1\SearchInFileCSVLibrary.deps.json
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\bin\Debug\netcoreapp3.1\SearchInFileCSVLibrary.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\bin\Debug\netcoreapp3.1\SearchInFileCSVLibrary.pdb
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\bin\Debug\netcoreapp3.1\ResourceLibrary.pdb
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\obj\Debug\netcoreapp3.1\SearchInFileCSVLibrary.csprojAssemblyReference.cache
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\obj\Debug\netcoreapp3.1\SearchInFileCSVLibrary.AssemblyInfoInputs.cache
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\obj\Debug\netcoreapp3.1\SearchInFileCSVLibrary.AssemblyInfo.cs
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\obj\Debug\netcoreapp3.1\SearchInFileCSVLibrary.csproj.CoreCompileInputs.cache
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\obj\Debug\netcoreapp3.1\SearchInFileCSVLibrary.csproj.CopyComplete
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\obj\Debug\netcoreapp3.1\SearchInFileCSVLibrary.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSVLibrary\obj\Debug\netcoreapp3.1\SearchInFileCSVLibrary.pdb
