@@ -18,6 +18,7 @@
 #endif
                 using (CancellationTokenSource cancellationToken = new CancellationTokenSource())
                 {
+                    var token = cancellationToken.Token;
                     /*Thread thread = new Thread(new ParameterizedThreadStart(GetConsoleKey));
                     thread.IsBackground = true;
                     thread.Start(cancellationToken);*/
@@ -36,23 +37,33 @@
                     Task taskKey = Task.Run(() => GetConsoleKey(cancellationToken));
                     if (i == 1)
                     {
-                        task = Task.Run(async () => await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression));
+                        task = Task.Run(async () => await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken.Token));
                         /*await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken.Token);*/
                     }
                     else
                     {
-                        task = Task.Run(async () => await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, cancellationToken.Token), cancellationToken.Token);
+                        task = Task.Run(async () => await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, cancellationToken.Token));
                     }
 #endif
 
 #if RELEASE
                     if (args[0] == "1")
                     {
-                        await new FileWork().SearchInFileCSVAsync(args[1], args[2], args[3], args[4], args[5], cancellationToken.Token);
+                        task = Task.Run(async () => await new FileWork().SearchInFileCSVAsync(args[1], args[2], args[3], args[4], args[5], token), token);
                     }
-                    else if (args[0] == "2")
+                    else
                     {
-                        await new DataTableCsv().CreateDataTableAsinc(Convert.ToUInt32(args[1]), Convert.ToUInt32(args[2]), Convert.ToUInt32(args[3]), Convert.ToByte(args[4]), args[5], args[6], cancellationToken.Token);
+                        task = Task.Run(
+                            async () => await new DataTableCsv().CreateDataTableAsinc
+                                (
+                                    Convert.ToUInt32(args[1]),
+                                    Convert.ToUInt32(args[2]),
+                                    Convert.ToUInt32(args[3]),
+                                    Convert.ToByte(args[4]),
+                                    args[5],
+                                    args[6],
+                                    token),
+                                token);
                     }
 #endif
                     task.Wait();
