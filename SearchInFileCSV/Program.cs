@@ -9,7 +9,7 @@
 
     internal class Program
     {
-        private static async Task Main(string[] args)
+        private static void Main(string[] args)
         {
             try
             {
@@ -18,27 +18,30 @@
 #endif
                 using (CancellationTokenSource cancellationToken = new CancellationTokenSource())
                 {
-                    Thread thread = new Thread(new ParameterizedThreadStart(GetConsoleKey));
+                    /*Thread thread = new Thread(new ParameterizedThreadStart(GetConsoleKey));
                     thread.IsBackground = true;
-                    thread.Start(cancellationToken);
+                    thread.Start(cancellationToken);*/
+                    Task task;
 #if DEBUG
                     int i = 2;
                     uint columns = 20;
-                    uint rows = 5;
+                    uint rows = 100000;
                     uint len = 10;
-                    byte lenName = 5;
+                    byte lenName = 3;
                     string input = @"E:\TestBigData.csv";
                     string output = @"E:\TestOutput.csv";
                     string encode = "UTF8";
                     string columname = @"zyivxmrrop";
                     string expression = "0,4046684";
+                    Task taskKey = Task.Run(() => GetConsoleKey(cancellationToken));
                     if (i == 1)
                     {
-                        await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken.Token);
+                        task = Task.Run(async () => await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression));
+                        /*await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken.Token);*/
                     }
                     else
                     {
-                        await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, cancellationToken.Token);
+                        task = Task.Run(async () => await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, cancellationToken.Token), cancellationToken.Token);
                     }
 #endif
 
@@ -52,9 +55,9 @@
                         await new DataTableCsv().CreateDataTableAsinc(Convert.ToUInt32(args[1]), Convert.ToUInt32(args[2]), Convert.ToUInt32(args[3]), Convert.ToByte(args[4]), args[5], args[6], cancellationToken.Token);
                     }
 #endif
+                    task.Wait();
                     cancellationToken.Cancel();
                     Console.WriteLine("Программа успешно завершила работу, для выхода из программы, нажмите любую клавишу.");
-                    thread.Join();
                 }
             }
             catch (AggregateException ex)
