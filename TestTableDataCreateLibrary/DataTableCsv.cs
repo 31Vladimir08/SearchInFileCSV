@@ -17,43 +17,27 @@
             using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
             {
                 var random = new Random();
+
                 var randomTable = new RandomTable(columns);
                 for (uint i = 0; i <= rows; i++)
                 {
-                    if (columns > Constants.LIMITETCOL)
-                    {
-                        var batched = randomTable.TypeColumns
-                                    .Select((Value, Index) => new { Value, Index })
-                                    .GroupBy(p => p.Index / Constants.LIMITETCOL)
-                                    .Select(g => g.Select(p => p.Value).ToArray());
-                        foreach (var item in batched)
-                        {
-                            random = new Random();
-                            if (i == 0)
-                            {
-                                sw.Write(randomTable.CreateHeaderTable(lenNameColumn, random, item));
-                            }
-                            else
-                            {
-                                sw.Write(randomTable.CreateRowTable(len, random, item));
-                            }
-                        }
-
-                        sw.WriteLine();
-                    }
-                    else
+                    var splits = randomTable.TypeColumns.Chunk(Resource.LIMITETCOL).ToList();
+                    foreach (var item in splits)
                     {
                         random = new Random();
                         if (i == 0)
                         {
-                            sw.WriteLine(randomTable.CreateHeaderTable(lenNameColumn, random));
+                            sw.Write(randomTable.CreateHeaderTable(lenNameColumn, random, item.ToArray()));
                         }
                         else
                         {
-                            sw.WriteLine(randomTable.CreateRowTable(len, random));
-                            cancellationToken.ThrowIfCancellationRequested();
+                            sw.Write(randomTable.CreateRowTable(len, random, item.ToArray()));
                         }
+
+                        cancellationToken.ThrowIfCancellationRequested();
                     }
+
+                    sw.WriteLine();
                 }
             }
         }
@@ -76,7 +60,7 @@
 
         private void CanExecute(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut)
         {
-            if (columns == 0)
+            if (columns == 0 || columns > uint.MaxValue)
             {
                 throw new UserException("Кол-во колонок должно быть не меньше 1 и не более " + uint.MaxValue);
             }
@@ -101,7 +85,7 @@
                 throw new UserException("Не верно указана кодировка");
             }
 
-            if (!pathFileOut.EndsWith(Constants.CSV))
+            if (!pathFileOut.EndsWith(Resource.CSV))
             {
                 throw new UserException("В имени файла должно быть указано расширение .csv");
             }

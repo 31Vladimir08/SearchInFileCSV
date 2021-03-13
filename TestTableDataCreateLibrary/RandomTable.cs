@@ -1,28 +1,25 @@
 ﻿namespace DataTableCreateLibrary
 {
     using System;
-    using System.Diagnostics;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
     using DataTableCreateLibrary.Interface;
+
     using ResourceLibrary;
 
     public class RandomTable : IRandomTable
     {
         public RandomTable(uint columnsCount)
         {
-            Timer = new Stopwatch();
             TypeColumns = CreateTypeColumns(columnsCount);
         }
 
         public uint[] TypeColumns { get; private set; }
 
-        public Stopwatch Timer { get; private set; }
-
         public string CreateHeaderTable(byte lenNameColumn, Random random, uint[] typeColumns = default)
         {
-            Timer.Restart();
             if (typeColumns == null)
             {
                 typeColumns = TypeColumns;
@@ -31,18 +28,16 @@
             var res = typeColumns.AsParallel().AsOrdered().Aggregate(new StringBuilder(), (current, item) =>
             {
                 current.Append(GetRandomString(lenNameColumn, random));
-                current.Append(Constants.DELIMETERCOLNAME);
+                current.Append(Resource.DELIMETERCOLNAME);
                 current.Append(DictionaryLibrary.TypeColumnDict.FirstOrDefault(y => y.Value == item).Key);
-                current.Append(Constants.DELIMETER);
+                current.Append(Resource.DELIMETER);
                 return current;
-            }).ToString().TrimEnd(Constants.DELIMETER);
-            Timer.Stop();
+            }).ToString().TrimEnd(Resource.DELIMETER);
             return res;
         }
 
         public string CreateRowTable(uint len, Random random, uint[] typeColumns = default)
         {
-            Timer.Restart();
             if (typeColumns == null)
             {
                 typeColumns = TypeColumns;
@@ -53,32 +48,31 @@
                 {
                     case (byte)TypeColumnEnum.DateTimeColumn:
                         {
-                            current.Append(GetRandomDate(random)).Append(Constants.DELIMETER);
+                            current.Append(GetRandomDate(random)).Append(Resource.DELIMETER);
                             break;
                         }
                     case (byte)TypeColumnEnum.IntColumn:
                         {
-                            current.Append(GetRandomIntNumber(random)).Append(Constants.DELIMETER);
+                            current.Append(GetRandomIntNumber(random)).Append(Resource.DELIMETER);
                             break;
                         }
                     case (byte)TypeColumnEnum.FloatColumn:
                         {
-                            current.Append(GetRandomFloatNumber(random)).Append(Constants.DELIMETER);
+                            current.Append(GetRandomFloatNumber(random)).Append(Resource.DELIMETER);
                             break;
                         }
                     default:
                         {
-                            current.Append(GetRandomString(len, random)).Append(Constants.DELIMETER);
+                            current.Append(GetRandomString(len, random)).Append(Resource.DELIMETER);
                             break;
                         }
                 }
                 return current;
-            }).ToString().TrimEnd(Constants.DELIMETER);
-            Timer.Stop();
+            }).ToString().TrimEnd(Resource.DELIMETER);
             return res;
         }
 
-        public uint[] CreateTypeColumns(uint columnsCount)
+        private uint[] CreateTypeColumns(uint columnsCount)
         {
             var random = new Random();
             var res = new uint[columnsCount];
@@ -90,7 +84,7 @@
             return res;
         }
 
-        public string GetRandomString(uint len, Random random)
+        private string GetRandomString(uint len, Random random)
         {
             var res = string.Empty;
             for (uint i = 0; i < len; i++)
@@ -101,7 +95,7 @@
             return res;
         }
 
-        public string GetRandomDate(Random random)
+        private string GetRandomDate(Random random)
         {
             // случайный год в диапазоне от 1990 до 2020 включительно.
             var randomYear = random.Next(1990, 2021);
@@ -115,12 +109,12 @@
             return new DateTime(randomYear, randomMonthNr, randomDayNr).ToShortDateString();
         }
 
-        public string GetRandomIntNumber(Random random)
+        private string GetRandomIntNumber(Random random)
         {
             return random.Next().ToString();
         }
 
-        public string GetRandomFloatNumber(Random random)
+        private string GetRandomFloatNumber(Random random)
         {
             return ((float)random.NextDouble()).ToString();
         }

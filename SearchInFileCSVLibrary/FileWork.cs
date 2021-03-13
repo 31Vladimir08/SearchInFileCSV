@@ -60,7 +60,7 @@
 
         private void CanExecute(string pathFileIn, string pathFileOut, string encode)
         {
-            if (!pathFileIn.EndsWith(Constants.CSV) || !pathFileOut.EndsWith(Constants.CSV))
+            if (!pathFileIn.EndsWith(Resource.CSV) || !pathFileOut.EndsWith(Resource.CSV))
             {
                 throw new UserException("В имени файла должно быть указано расширение .csv");
             }

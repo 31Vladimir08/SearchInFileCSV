@@ -19,14 +19,11 @@
                 using (CancellationTokenSource cancellationToken = new CancellationTokenSource())
                 {
                     var token = cancellationToken.Token;
-                    /*Thread thread = new Thread(new ParameterizedThreadStart(GetConsoleKey));
-                    thread.IsBackground = true;
-                    thread.Start(cancellationToken);*/
                     Task task;
 #if DEBUG
                     int i = 2;
-                    uint columns = 20;
-                    uint rows = 100000;
+                    uint columns = 10;
+                    uint rows = 4;
                     uint len = 10;
                     byte lenName = 3;
                     string input = @"E:\TestBigData.csv";
@@ -37,12 +34,11 @@
                     Task taskKey = Task.Run(() => GetConsoleKey(cancellationToken));
                     if (i == 1)
                     {
-                        task = Task.Run(async () => await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken.Token));
-                        /*await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, cancellationToken.Token);*/
+                        task = Task.Run(async () => await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, token), token);
                     }
                     else
                     {
-                        task = Task.Run(async () => await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, cancellationToken.Token));
+                        task = Task.Run(async () => await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, token), token);
                     }
 #endif
 
@@ -85,22 +81,21 @@
             }
         }
 
-        private static void GetConsoleKey(object cancellationToken)
+        private static void GetConsoleKey(CancellationTokenSource cancellationToken)
         {
             try
             {
                 ConsoleKeyInfo key;
-                var x = (CancellationTokenSource)cancellationToken;
                 do
                 {
                     key = Console.ReadKey();
                     if (key.Key == ConsoleKey.Escape)
                     {
                         Console.WriteLine(key.Key + " клавиша была нажата");
-                        x.Cancel();
+                        cancellationToken.Cancel();
                     }
                 }
-                while (!x.Token.IsCancellationRequested && key.Key != ConsoleKey.Escape);
+                while (!cancellationToken.IsCancellationRequested && key.Key != ConsoleKey.Escape);
             }
             catch (Exception ex)
             {
