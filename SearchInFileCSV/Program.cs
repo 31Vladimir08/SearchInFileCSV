@@ -21,7 +21,7 @@
                     var token = cancellationToken.Token;
                     Task task;
 #if DEBUG
-                    int i = 2;
+                    int i = 1;
                     uint columns = 10;
                     uint rows = 4;
                     uint len = 10;
@@ -29,8 +29,8 @@
                     string input = @"E:\TestBigData.csv";
                     string output = @"E:\TestOutput.csv";
                     string encode = "UTF8";
-                    string columname = @"zyivxmrrop";
-                    string expression = "0,4046684";
+                    string columname = @"myn";
+                    string expression = "1957212450";
                     Task taskKey = Task.Run(() => GetConsoleKey(cancellationToken));
                     if (i == 1)
                     {

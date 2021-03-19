@@ -1,12 +1,13 @@
 ﻿namespace SearchInFileCSVLibrary
 {
     using System;
-    using System.Diagnostics;
     using System.IO;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+
     using ResourceLibrary;
+
     using SearchInFileCSVLibrary.Interface;
 
     public class FileWork : IFileWork
@@ -17,15 +18,13 @@
             var encoding = DictionaryLibrary.EncodingDict.FirstOrDefault(x => x.Key == encode).Value;
             using (StreamReader sr = new StreamReader(pathFileIn, encoding))
             {
-                var timer = new Stopwatch();
                 var tableWork = new TableWork();
                 var line = sr.ReadLine();
-                timer.Restart();
                 var columnsNambers = tableWork.FindNumbersColumnsHeader(line, colName, expression, cancellationToken);
-                timer.Stop();
                 using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
                 {
                     sw.WriteLine(line);
+                    cancellationToken.ThrowIfCancellationRequested();
                 }
 
                 while ((line = sr.ReadLine()) != null)
