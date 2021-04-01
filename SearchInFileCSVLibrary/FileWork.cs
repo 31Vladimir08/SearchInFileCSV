@@ -12,7 +12,7 @@
 
     public class FileWork : IFileWork
     {
-        public void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken)
+        public void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken = default)
         {
             CanExecute(pathFileIn, pathFileOut, encode);
             var encoding = DictionaryLibrary.EncodingDict.FirstOrDefault(x => x.Key == encode).Value;
