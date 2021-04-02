@@ -96,3 +96,10 @@ E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\Data
 E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.Tests.dll
 E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.Tests.pdb
 E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\obj\Debug\netcoreapp3.1\DataTableCreateLibrary.Tests.genruntimeconfig.cache
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\bin\Debug\netcoreapp3.1\CoverletSourceRootsMapping
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\bin\Debug\netcoreapp3.1\testhost.exe
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.AdapterUtilities.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\bin\Debug\netcoreapp3.1\Castle.Core.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\bin\Debug\netcoreapp3.1\Moq.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\bin\Debug\netcoreapp3.1\TestFiles\TestData.csv
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\DataTableCreateLibraryTests\bin\Debug\netcoreapp3.1\TestFiles\TestDataOutput.csv

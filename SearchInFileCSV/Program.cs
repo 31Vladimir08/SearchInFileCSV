@@ -21,11 +21,11 @@
                     var token = cancellationToken.Token;
                     Task task;
 #if DEBUG
-                    int i = 1;
-                    uint columns = 10;
-                    uint rows = 4;
-                    uint len = 10;
-                    byte lenName = 3;
+                    int i = 2;
+                    uint columns = 20;
+                    uint rows = 20;
+                    uint len = 30;
+                    byte lenName = 5;
                     string input = @"E:\TestBigData.csv";
                     string output = @"E:\TestOutput.csv";
                     string encode = "UTF8";
