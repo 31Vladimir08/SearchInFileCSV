@@ -3,16 +3,26 @@
     using System;
     using System.Threading;
     using System.Threading.Tasks;
+
+    using Autofac;
+
     using DataTableCreateLibrary;
+    using DataTableCreateLibrary.Interface;
+
     using ResourceLibrary;
     using SearchInFileCSVLibrary;
+    using SearchInFileCSVLibrary.Interface;
 
     internal class Program
     {
+        private static ContainerBuilder containerBuilder;
+        private static IContainer container;
+
         private static void Main(string[] args)
         {
             try
             {
+                InitIoC();
 #if RELEASE
                 CanExecute(args);
 #endif
@@ -34,23 +44,23 @@
                     Task taskKey = Task.Run(() => GetConsoleKey(cancellationToken));
                     if (i == 1)
                     {
-                        task = Task.Run(async () => await new FileWork().SearchInFileCSVAsync(input, output, encode, columname, expression, token), token);
+                        task = Task.Run(async () => await container.Resolve<IFileWork>().SearchInFileCSVAsync(input, output, encode, columname, expression, token), token);
                     }
                     else
                     {
-                        task = Task.Run(async () => await new DataTableCsv().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, token), token);
+                        task = Task.Run(async () => await container.Resolve<IDataTableCsv>().CreateDataTableAsinc(columns, rows, len, lenName, encode, input, token), token);
                     }
 #endif
 
 #if RELEASE
                     if (args[0] == "1")
                     {
-                        task = Task.Run(async () => await new FileWork().SearchInFileCSVAsync(args[1], args[2], args[3], args[4], args[5], token), token);
+                        task = Task.Run(async () => await container.Resolve<IFileWork>().SearchInFileCSVAsync(args[1], args[2], args[3], args[4], args[5], token), token);
                     }
                     else
                     {
                         task = Task.Run(
-                            async () => await new DataTableCsv().CreateDataTableAsinc
+                            async () => await container.Resolve<IDataTableCsv>().CreateDataTableAsinc
                                 (
                                     Convert.ToUInt32(args[1]),
                                     Convert.ToUInt32(args[2]),
@@ -127,6 +137,14 @@
                     throw new UserException("Один из передаваемых параметров содержит пустую строку");
                 }
             }
+        }
+
+        private static void InitIoC()
+        {
+            containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterType<FileWork>().As<IFileWork>();
+            containerBuilder.RegisterType<DataTableCsv>().As<IDataTableCsv>();
+            container = containerBuilder.Build();
         }
     }
 }

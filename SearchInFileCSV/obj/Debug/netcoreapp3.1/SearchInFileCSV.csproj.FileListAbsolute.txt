@@ -38,3 +38,5 @@ E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\Sear
 E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSV\obj\Debug\netcoreapp3.1\SearchInFileCSV.dll
 E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSV\obj\Debug\netcoreapp3.1\SearchInFileCSV.pdb
 E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSV\obj\Debug\netcoreapp3.1\SearchInFileCSV.genruntimeconfig.cache
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSV\bin\Debug\netcoreapp3.1\Autofac.dll
+E:\Мои документы\Володя\Проекты\C#\SearchInFileCSV\SearchInFileCSV\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll

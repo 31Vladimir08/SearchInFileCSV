@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8xEanqRZO6cAgJtoY1vfv0U8YjP/cpfKWDLIuIaif+s158dhz3lUmxaOGmgHrOI7SS0ifMQdpWgX7bhKi/+fwg==",
+  "dgSpecHash": "/taobblvskGtKLh//kbb4c8N2QqhSpAq7sZb+lt22hfTVhaMzKwdNh99ZUVrY5t0whjEo6ec8fRgNB+KlxhnrA==",
   "success": true,
   "projectFilePath": "E:\\Мои документы\\Володя\\Проекты\\C#\\SearchInFileCSV\\SearchInFileCSV\\SearchInFileCSV.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
   ],
   "logs": []
 }
