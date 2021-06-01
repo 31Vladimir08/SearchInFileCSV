@@ -12,8 +12,16 @@
 
     public class FileWork : IFileWork
     {
+        SemaphoreSlim semaphoreSlim;
+
+        public FileWork()
+        {
+            semaphoreSlim = new SemaphoreSlim(1);
+        }
+
         public void SearchInFileCSV(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken = default)
         {
+            semaphoreSlim.Wait();
             CanExecute(pathFileIn, pathFileOut, encode);
             var encoding = DictionaryLibrary.EncodingDict.FirstOrDefault(x => x.Key == encode).Value;
             using (StreamReader sr = new StreamReader(pathFileIn, encoding))
@@ -39,6 +47,8 @@
                     }
                 }
             }
+
+            semaphoreSlim.Release();
         }
 
         public async Task SearchInFileCSVAsync(string pathFileIn, string pathFileOut, string encode, string colName, string expression, CancellationToken cancellationToken = default)

@@ -12,32 +12,35 @@
     {
         public void CreateDataTable(uint columns, uint rows, uint len, byte lenNameColumn, string encode, string pathFileOut, CancellationToken cancellationToken)
         {
-            CanExecute(columns, rows, len, lenNameColumn, encode, pathFileOut);
-            var encoding = DictionaryLibrary.EncodingDict.FirstOrDefault(x => x.Key == encode).Value;
-            using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
+            lock (this)
             {
-                var random = new Random();
-
-                var randomTable = new RandomTable(columns);
-                for (uint i = 0; i <= rows; i++)
+                CanExecute(columns, rows, len, lenNameColumn, encode, pathFileOut);
+                var encoding = DictionaryLibrary.EncodingDict.FirstOrDefault(x => x.Key == encode).Value;
+                using (StreamWriter sw = new StreamWriter(pathFileOut, false, encoding))
                 {
-                    var splits = randomTable.TypeColumns.Chunk(Resource.LIMITETCOL).ToList();
-                    foreach (var item in splits)
+                    var random = new Random();
+
+                    var randomTable = new RandomTable(columns);
+                    for (uint i = 0; i <= rows; i++)
                     {
-                        random = new Random();
-                        if (i == 0)
+                        var splits = randomTable.TypeColumns.Chunk(Resource.LIMITETCOL).ToList();
+                        foreach (var item in splits)
                         {
-                            sw.Write(randomTable.CreateHeaderTable(lenNameColumn, random, item.ToArray()));
-                        }
-                        else
-                        {
-                            sw.Write(randomTable.CreateRowTable(len, random, item.ToArray()));
+                            random = new Random();
+                            if (i == 0)
+                            {
+                                sw.Write(randomTable.CreateHeaderTable(lenNameColumn, random, item.ToArray()));
+                            }
+                            else
+                            {
+                                sw.Write(randomTable.CreateRowTable(len, random, item.ToArray()));
+                            }
+
+                            cancellationToken.ThrowIfCancellationRequested();
                         }
 
-                        cancellationToken.ThrowIfCancellationRequested();
+                        sw.WriteLine();
                     }
-
-                    sw.WriteLine();
                 }
             }
         }
